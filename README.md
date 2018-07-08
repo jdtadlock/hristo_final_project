@@ -1,43 +1,41 @@
-# final-project
-Final project for GA Tech coding bootcamp
+# React Passport Example Application
 
-# Name Unknown
+An example application which combines a back-end which stores user data and front-end React.js application which handles user authentication sessions.
 
-## App Description
-This project aims to create a social media experience unlike any other.
-Using a graphic user interface, users will be able to create a custom sound form and arrange it in a series of selected notes,
-Then, an interactive canvas element will generate shapes that will play through the selected notes in a semi-randomized fashion via collision detection.
+This application be easily separated into two completely different repositories.
 
-Users can then share these creations with people they follow.
+Created using the tutorials below:
 
-## Technologies Implemented
+https://vladimirponomarev.com/blog/authentication-in-react-apps-creating-components
+https://vladimirponomarev.com/blog/authentication-in-react-apps-jwt
 
-* Bulma
-* Web Audio API
-* p5.js (or paper.js)
-* React
-* MongoDB
-* Express
-* Passport
+- axios
+- bcryptjs
+- jsonwebtoken
+- mongoose
+- passport
+- react-router-dom
+- validator
 
-## Task Delegation
+## Installation
 
-#### Aarick
-* Web Audio API Implementation
-* Canvas Element Implementation
+After cloning the repo, follow the steps below:
+```sh
+$ cd react-passport-example
+```
+```sh
+$ yarn install
+```
+```sh
+$ sudo mongod
+```
+```sh
+$ yarn run dev
+```
 
-#### Allen
-* Project Manamgement
-* Database Structuring/Implementation
+When editing the files, run the following command for webpack to watch your files and bundle whenever changes are made:
+```sh
+$ yarn run bundle
+```
 
-#### Hristo
-* User Auth
-* Routing
-
-## Deliverable 1
-* Plan - Allen
-* Design - Aarick
-* Research - Hristo
-
-
-
+## Screenshots
