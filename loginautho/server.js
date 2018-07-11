@@ -5,7 +5,8 @@ const path = require('path');
 const port = process.env.PORT || 5000;
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://abc:123abc@ds123770.mlab.com:23770/project3db', { useNewUrlParser: true });
+// mongodb://abc:123abc@ds123770.mlab.com:23770/project3db
+mongoose.connect('mongodb://localhost:27017/hristo', { useNewUrlParser: true });
 
 const app = express();
 

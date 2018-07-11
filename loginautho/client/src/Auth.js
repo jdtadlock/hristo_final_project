@@ -12,7 +12,7 @@ export default class Auth {
         });
 
         this.login = this.login.bind(this);
-        this.logout this.logout.bind(this);
+        this.logout = this.logout.bind(this);
         this.processAuthentication = this.processAuthentication.bind(this);
 
         this.history = history;
@@ -49,7 +49,7 @@ export default class Auth {
     }
 
     isAuthenticated() {
-        let expires_at = JASON.parse(localStorage.getItem('expires_at'));
+        let expires_at = JSON.parse(localStorage.getItem('expires_at'));
 
         return new Date().getTime() < expires_at;
     }
