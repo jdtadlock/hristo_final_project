@@ -1,0 +1,26 @@
+{
+  "name": "final-project",
+  "version": "1.0.0",
+  "description": "Final project for GTBC",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aarick-F/final-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aarick-F/final-project/issues"
+  },
+  "homepage": "https://github.com/Aarick-F/final-project#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.4",
+    "nodemon": "^1.18.3"
+  }
+}

@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css?family=Electrolize');
+
+/*Prevents clicks from highlighting stuff on the page*/
+html {
+  -webkit-user-select: none; /* Chrome/Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+}
+
+body {
+  background: #2A2C2B;
+}
+
+a, a:focus, a:hover, a:visited, a:link, a:active {
+  text-decoration: none;
+  color: #2A2C2B;
+}
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Electrolize', sans-serif;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #DC3522;
+  color: #2A2C2B;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2.15em;
+  padding: 20px 0;
+  text-shadow: 1px 1px 0px #D9CB9E;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav h2 {
+  margin: 10px;
+  padding: 10px 15px;
+  background: #2A2C2B;
+  color: #DC3522;
+  border-radius: 5px;
+}
+
+.nav h2:hover {
+  background: #D9CB9E;
+  color: #2A2C2B;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.postWrapper {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(217, 203, 158, 1);
+}
+
+.postInfo {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cycle {
+  color: #2A2C2B;
+  margin: 10px 20px;
+}
+
+.cycle i:hover {
+  color: #DC3522;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.canvasWrapper {
+  background: #2A2C2B;
+  flex: 1;
+  width: 100%;
+  resize: both;
+}
+
+/*CREATE POST CSS*/
+.createPost {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.createPost h1 {
+  font-size: 2em;
+  width: 30%;
+  text-align: center;
+  color: rgba(217, 203, 158, 1);
+  text-shadow: 1px 1px 0px #DC3522;
+  margin: 10px;
+  padding: 5px 0;
+  border-bottom: 3px solid rgba(217, 203, 158, 1);
+}
+
+.container {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.selectionLabel {
+  font-size: 1.25em;
+  color: rgba(217, 203, 158, 1);
+}
+
+.dropdown {
+  width: 50%;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(217, 203, 158, 1);
+}
+
+.noteSelector {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.noteButtons {
+  width: 100%;
+  color: #2A2C2B;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.noteIcon {
+  width: 70px;
+  height: 70px;
+  background: rgba(217, 203, 158, 1);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.removeNote {
+  width: 100%;
+  height: 40px;
+  background: rgba(217, 203, 158, 1);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.notesContainer {
+  width: 30%;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.note {
+  width: 40px;
+  height: 40px;
+  background: #DC3522;
+  color: rgba(217, 203, 158, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin: 5px 5px;
+}
+
+.title {
+  margin: 10px 0;
+}
+
+.submit {
+  width: 100%;
+  height: 40px;
+  background: rgba(217, 203, 158, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit:hover {
+  background: #DC3522;
+  transition: 0.2s;
+}
+
+select:active, select:hover, select:focus {
+  outline: none;
+  highlight: none;
+}
+
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(217, 203, 158, 1);
+  color: #2A2C2B;
+}
+
+.footer h1 {
+  font-size: 1.25em;
+  padding: 15px 0;
+  text-shadow: 1px 1px 0px #DC3522;
+}
+
+@media screen and (max-width: 850px) {
+  .header h1 {
+    font-size: 1.5em;
+  }
+  .createPost h1 {
+    width: 60%;
+  }
+  .container {
+    width: 90%;
+  }
+  .noteSelector {
+    width: 90%;
+  }
+  .notesContainer {
+    width: 90%;
+  }
+}
