@@ -95,7 +95,7 @@ class Canvas extends Component {
 
     // Resizes canvas on window size change
     window.addEventListener("resize", () => {
-      if(!this.canvas) {
+      if(!this.runCanvas) {
         return;
       }
       circles = [];
