@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Note from "./Note.js";
+import axios from "axios";
 
 class CreatePost extends Component {
   constructor() {
@@ -8,7 +9,8 @@ class CreatePost extends Component {
     this.state = {
       synthType: "synth",
       notes: [],
-      title: ""
+      title: "",
+      redirect: false
     }
 
     this.onChange = this.onChange.bind(this);
@@ -41,14 +43,21 @@ class CreatePost extends Component {
 
     console.log(noteString);
 
-    let post = {
+    let newPost = {
       title: this.state.title,
-      notes: noteString,
-      synthType: this.state.synthType
+      synthType: this.state.synthType,
+      notes: noteString
     }
 
     // POST TO DATABASE LOGIC GOES HERE
-  
+    axios.post("/api/post/create", newPost)
+      .then(res => {
+        console.log(res.data);
+        this.setState({
+          redirect: true
+        });
+      })
+      .catch(err => console.log(err));
   }
 
   removeNote() {
@@ -59,6 +68,11 @@ class CreatePost extends Component {
 
   render() {
     const arr = this.state.notes;
+
+    if(this.state.redirect) {
+      return <Redirect to="/" />
+    }
+
     return (
       <div className="createPost">
         <h1>Create Post</h1>

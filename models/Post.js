@@ -14,6 +14,10 @@ const PostSchema = new Schema({
   notes: {
     type: String,
     required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
   }
 });
 

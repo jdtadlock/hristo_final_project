@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Tone from "tone";
+import axios from "axios";
 
 // Holds circle objects to be drawn on canvas
 let circles = [];
@@ -78,13 +79,19 @@ class Canvas extends Component {
     super();
     this.handleClick = this.handleClick.bind(this);
     this.animate = this.animate.bind(this);
+    this.cycleLeft = this.cycleLeft.bind(this);
+    this.cycleRight = this.cycleRight.bind(this);
+    this.clear = this.clear.bind(this);
     this.runCanvas = true;
+
+    this.posts;
+    this.postSelector = 0;
 
     this.state = {
       user: "TestUser",
       postTitle: "C Major Scale",
       synthType: "poly",
-      postNotes: "C4,D4,E4,F4,G4,A4,B4,C5"
+      postNotes: ""
     }
   }
 
@@ -106,8 +113,21 @@ class Canvas extends Component {
     this.synth;
     this.notes = "";
 
-    // Animation entry point for the Canvas
-    this.animate();
+    
+
+    axios.get("/api/post")
+      .then(res => {
+        console.log(res.data);
+        this.posts = res.data;
+        this.setState({
+          postTitle: this.posts[this.postSelector].title,
+          synthType: this.posts[this.postSelector].synthType,
+          notes: this.posts[this.postSelector].notes
+        });
+        // Animation entry point for the Canvas
+        this.animate();
+      })
+      .catch(err => err);
   }
 
   componentWillUnmount() {
@@ -126,6 +146,37 @@ class Canvas extends Component {
     circles.push(newCircle);
   }
 
+  cycleLeft() {
+    if(this.postSelector > 0) {
+      this.postSelector--;
+      this.setState({
+        postTitle: this.posts[this.postSelector].title,
+        synthType: this.posts[this.postSelector].synthType,
+        notes: this.posts[this.postSelector].notes
+      });
+    } else {
+      console.log("Cycle Left Clicked");
+    }
+  }
+
+  cycleRight() {
+    if(this.postSelector < this.posts.length - 1) {
+      this.postSelector++;
+      console.log(this.postSelector);
+      this.setState({
+        postTitle: this.posts[this.postSelector].title,
+        synthType: this.posts[this.postSelector].synthType,
+        notes: this.posts[this.postSelector].notes
+      });
+    } else {
+      console.log("Cycle Right Clicked");
+    }
+  }
+
+  clear() {
+    circles = [];
+  }
+
   getRadius() {
     return Math.floor(Math.random() * 30) + 10;
   }
@@ -139,7 +190,7 @@ class Canvas extends Component {
     c.clearRect(0, 0, this.myCanvas.width, this.myCanvas.height);
     circles.forEach(circle => {
       circle.draw(this.myCanvas);
-      circle.update(this.myCanvas, this.synth, this.state.postNotes.split(","));
+      circle.update(this.myCanvas, this.synth, this.state.notes.split(","));
     });
   }
 
@@ -165,13 +216,14 @@ class Canvas extends Component {
       <div className="postWrapper">
         <div className="post">
           <div className="cycle">
-            <i className="fas fa-arrow-left fa-2x"></i>
+            <i className="fas fa-arrow-left fa-2x" onClick={this.cycleLeft}></i>
           </div>
           <div className="postInfo">
             <h1>{this.state.user} - {this.state.postTitle}</h1>
+            <div className="clear" onClick={this.clear}>CLEAR</div>
           </div>
           <div className="cycle">
-            <i className="fas fa-arrow-right fa-2x"></i>
+            <i className="fas fa-arrow-right fa-2x" onClick={this.cycleRight}></i>
           </div>
         </div>
         <div className="canvasWrapper" ref={boxSize => this.boxSize = boxSize}>

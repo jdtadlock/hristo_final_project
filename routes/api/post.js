@@ -12,6 +12,13 @@ router.get("/test", (req, res) => {
   res.json({msg: "Post test route!"})
 });
 
+router.get("/", (req, res) => {
+  Post.find()
+    .sort({date: -1})
+    .then(posts => res.json(posts))
+    .catch(err => console.log(err));
+});
+
 // @route   POST api/post/create
 // @desc    Creates post and saves to DB
 // @access  Public, for now

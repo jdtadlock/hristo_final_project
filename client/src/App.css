@@ -84,8 +84,21 @@ a, a:focus, a:hover, a:visited, a:link, a:active {
   flex: 1;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+}
+
+.clear {
+  background: #2A2C2B;
+  color: rgba(217, 203, 158, 1);
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.clear:hover {
+  background: #DC3522;
+  transition: 0.2s;
 }
 
 .cycle {
