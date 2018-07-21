@@ -41,7 +41,21 @@ class CreatePost extends Component {
 
     noteString = noteString.substring(0, noteString.length - 1);
 
-    console.log(noteString);
+    // Extremely basic input validation
+    if(this.state.title.indexOf("<") !== -1 || this.state.title.indexOf(">") !== -1) {
+      alert("Stop That.");
+      return;
+    }
+
+    if(this.state.title.length === 0 || this.state.title.length > 25) {
+      alert("Title is required and must be less than 25 characters in length");
+      return;
+    }
+
+    if(noteString.length === 0) {
+      alert("You must select at least one note");
+      return;
+    }
 
     let newPost = {
       title: this.state.title,
@@ -52,7 +66,6 @@ class CreatePost extends Component {
     // POST TO DATABASE LOGIC GOES HERE
     axios.post("/api/post/create", newPost)
       .then(res => {
-        console.log(res.data);
         this.setState({
           redirect: true
         });
@@ -80,8 +93,9 @@ class CreatePost extends Component {
           <h2 className="selectionLabel">Sound Type:</h2>
           <select className="dropdown" name="synthType" onChange={this.onChange}>
             <option value="synth">Synth</option>
-            <option value="mono">MonoSynth</option>
+            <option value="pluck">PluckSynth</option>
             <option value="poly">PolySynth</option>
+            <option value="duo">DuoSynth</option>
           </select>
         </div>
         <div className="noteSelector">
@@ -109,7 +123,7 @@ class CreatePost extends Component {
         </div>
         <div className="container title">
           <h2 className="selectionLabel">Title:</h2>
-          <input className="dropdown" type="text" name="title" onChange={this.onChange}></input>
+          <input className="dropdown" type="text" name="title" onChange={this.onChange} placeholder="Max Length: 20 Characters"></input>
         </div>
         <div className="container">
           <div className="submit" onClick={this.handleSubmit}>SUBMIT</div>

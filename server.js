@@ -9,7 +9,7 @@ const db = require("./config/keys").mongoURI;
 mongoose
   .connect(db)
   .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.log("Shit's fucked"));
+  .catch(err => console.log(err));
 
 // Express Init
 const app = express();
@@ -20,9 +20,11 @@ app.use(bodyParser.json());
 
 // Import Routes
 const post = require("./routes/api/post");
+const user = require("./routes/api/user");
 
 // Use Routes
 app.use("/api/post", post);
+app.use("/api/user", user);
 
 // Server Port
 const port = process.env.PORT || 5000;

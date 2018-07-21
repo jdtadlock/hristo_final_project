@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import Tone from "tone";
 import axios from "axios";
+import Auth0Lock from "auth0-lock";
 
+const lock = new Auth0Lock(
+  'YUadYYPuO51bN-WUz50wcPU3ww97-q_1',
+  'aarick-f.auth0.com'
+);
 // Holds circle objects to be drawn on canvas
 let circles = [];
 
@@ -202,12 +207,17 @@ class Canvas extends Component {
         this.synth = new Tone.Synth();
         this.synth.toMaster();
         break;
-      case "mono":
-        this.synth = new Tone.MonoSynth();
+      case "pluck":
+        this.synth = new Tone.PluckSynth();
+        this.synth.volume.value = 0.5;
         this.synth.toMaster();
         break;
       case "poly":
         this.synth = new Tone.PolySynth();
+        this.synth.toMaster();
+        break;
+      case "duo":
+        this.synth = new Tone.DuoSynth();
         this.synth.toMaster();
         break;
     }

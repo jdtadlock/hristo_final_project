@@ -12,6 +12,9 @@ router.get("/test", (req, res) => {
   res.json({msg: "Post test route!"})
 });
 
+// @route   GET api/post/
+// @desc    Grabs posts from database
+// @access  Public
 router.get("/", (req, res) => {
   Post.find()
     .sort({date: -1})

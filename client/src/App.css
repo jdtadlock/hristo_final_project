@@ -64,6 +64,10 @@ a, a:focus, a:hover, a:visited, a:link, a:active {
   cursor: pointer;
 }
 
+.loggedIn {
+  display: flex;
+}
+
 .postWrapper {
   width: 100%;
   flex: 1;

@@ -10,12 +10,15 @@ import Footer from "./components/layout/Footer";
 import Canvas from "./components/Canvas";
 import CreatePost from "./components/CreatePost";
 
+import Auth from './Auth/Auth.js';
+const auth = new Auth();
+
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="main">
-          <Header />
+          <Header auth={auth}/>
           <Route exact path="/" component={Canvas} />
           <Route exact path="/post" component={CreatePost} />
           <Footer />
