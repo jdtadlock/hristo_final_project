@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -27,7 +29,7 @@ app.use("/api/post", post);
 app.use("/api/user", user);
 
 // Server Port
-const port = process.env.PORT || 5000;
+const port = process.env.SERVER_PORT;
 
 // Server Start
 app.listen(port, () => console.log(`Server listening on port ${port}`));
