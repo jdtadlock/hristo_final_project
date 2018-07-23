@@ -29,7 +29,7 @@ app.use("/api/post", post);
 app.use("/api/user", user);
 
 // Server Port
-const port = process.env.SERVER_PORT;
+const port = process.env.PORT;
 
 // Server Start
 app.listen(port, () => console.log(`Server listening on port ${port}`));
