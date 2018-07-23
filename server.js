@@ -29,12 +29,12 @@ const user = require("./routes/api/user");
 app.use("/api/post", post);
 app.use("/api/user", user);
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/public', 'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'client/public', 'index.html'));
+// });
 
 // Server Port
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 
 // Server Start
 app.listen(port, () => console.log(`Server listening on port ${port}`));
