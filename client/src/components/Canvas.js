@@ -118,8 +118,6 @@ class Canvas extends Component {
     this.synth;
     this.notes = "";
 
-    
-
     axios.get("/api/post")
       .then(res => {
         console.log(res.data);
