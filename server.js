@@ -28,6 +28,10 @@ const user = require("./routes/api/user");
 app.use("/api/post", post);
 app.use("/api/user", user);
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
+
 // Server Port
 const port = process.env.PORT;
 
