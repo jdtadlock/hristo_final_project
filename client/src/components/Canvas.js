@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import Tone from "tone";
 import axios from "axios";
-import Auth0Lock from "auth0-lock";
+// import Auth0Lock from "auth0-lock";
 
-const lock = new Auth0Lock(
-  'YUadYYPuO51bN-WUz50wcPU3ww97-q_1',
-  'aarick-f.auth0.com'
-);
+// const lock = new Auth0Lock(
+//   'YUadYYPuO51bN-WUz50wcPU3ww97-q_1',
+//   'aarick-f.auth0.com'
+// );
 // Holds circle objects to be drawn on canvas
 let circles = [];
 
